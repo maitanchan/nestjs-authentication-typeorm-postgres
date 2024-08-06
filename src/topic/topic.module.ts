@@ -6,17 +6,11 @@ import { Topic } from './entities/topic.entity';
 
 @Module({
 
-  imports: [
-    TypeOrmModule.forFeature([Topic])
-  ],
+  imports: [TypeOrmModule.forFeature([Topic])],
 
-  controllers: [
-    TopicController
-  ],
+  controllers: [TopicController],
 
-  providers: [
-    TopicService
-  ]
+  providers: [TopicService]
 
 })
 export class TopicModule { }

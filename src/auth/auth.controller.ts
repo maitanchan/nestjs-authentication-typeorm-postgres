@@ -1,8 +1,7 @@
-import { Controller, Get, Post, Body, UseGuards, Request } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Request } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
-import { LocalAuthGuard } from './guard/local.guard';
 import { RefreshJwtGuard } from './guard/refresh-jwt.guard';
 
 
@@ -33,7 +32,5 @@ export class AuthController {
     return this.authService.signRefreshToken(req.user)
 
   }
-
-
 
 }

@@ -38,7 +38,9 @@ export class AuthService {
         const user = await this.userRepository.findOne({ where: { email: registerDto.email } })
 
         if (user) {
+
             throw new ConflictException('Email already exist')
+
         }
 
         const newUser = this.userRepository.create(registerDto)
@@ -54,13 +56,17 @@ export class AuthService {
         const user = await this.userRepository.findOne({ where: { email: loginDto.email } })
 
         if (!user) {
+
             throw new NotFoundException('Email not found')
+
         }
 
         const comparePassword = await bcrypt.compare(loginDto.password, user.password)
 
         if (!comparePassword) {
+
             throw new UnauthorizedException('Password has been wrong')
+
         }
 
         const access_token = this.jwtService.sign({ id: user.id, email: user.email })

@@ -10,7 +10,6 @@ import { TopicModule } from './topic/topic.module';
   imports: [
 
     TypeOrmModule.forRoot({
-
       type: 'postgres',
       host: 'localhost',
       port: 5434,
@@ -19,8 +18,6 @@ import { TopicModule } from './topic/topic.module';
       database: 'nestjs-authentication-typeorm',
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true
-
-
     }),
 
     UsersModule,

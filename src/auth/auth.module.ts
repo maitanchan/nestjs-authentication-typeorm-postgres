@@ -23,21 +23,25 @@ import { RefreshJwtStrategy } from './strategy/refresh-token.strategy';
     JwtModule.register({
 
       secret: 'secret-key',
+
       signOptions: { expiresIn: '1m' }
 
     })
 
   ],
 
-  controllers: [
-    AuthController
-  ],
+  controllers: [AuthController],
 
   providers: [
+
     AuthService,
+
     LocalStrategy,
+
     JwtStrategy,
+
     RefreshJwtStrategy
+
   ]
 
 })
